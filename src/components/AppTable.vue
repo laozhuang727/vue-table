@@ -34,6 +34,12 @@
 				          row-class-callback="rowClassCB"
 				></vuetable>
 			</div>
+
+			<div id="note">
+				<toolbar></toolbar>
+				<notes-list></notes-list>
+				<editor></editor>
+			</div>
 		</div>
 
 	</div>
@@ -53,6 +59,10 @@
 	import VuetableSearchToolBar from './VuetableSearchToolBar.vue'
 	import VuetableSettingsModal from './VuetableSettingsModal.vue'
 	import Vuetable from './Vuetable.vue'
+	import Toolbar from './Toolbar.vue'
+	import NotesList from './NotesList.vue'
+	import Editor from './Editor.vue'
+
 //	import VuetablePagination from './VuetablePagination.vue'
 //	import CustomAction from './CustomAction.vue'
 
@@ -70,7 +80,10 @@
 //			'vuetable-pagination': VuetablePagination,
 			moment,
 			SweetAlert,
-			Vuetable
+			Vuetable,
+			Toolbar,
+			NotesList,
+			Editor
 		},
 		data(){
 			return {

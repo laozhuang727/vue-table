@@ -50,8 +50,8 @@ export default {
   },
   vuex: {
     getters: {
-      notes: state => state.notes,
-      activeNote: state => state.activeNote
+      notes: ({ note }) => note.notes,
+      activeNote: ({ note }) => note.activeNote
     },
     actions: {
       updateActiveNote

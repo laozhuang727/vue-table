@@ -14,7 +14,7 @@ import { editNote } from '../../vuex/actions'
 export default {
   vuex: {
     getters: {
-      activeNoteText: state => state.activeNote.text
+      activeNoteText: ({ note }) => note.activeNote.text
     },
     actions: {
       editNote
