@@ -4,6 +4,7 @@ import VueResource from 'vue-resource'
 
 
 import NoteManagerState from './modules/note-manager-state'
+import VueTableState from './modules/table-state'
 
 Vue.use(Vuex)
 Vue.use(VueResource)
@@ -14,6 +15,7 @@ const debug = process.env.NODE_ENV !== 'production'
 export default new Vuex.Store({
   modules: {
     NoteManagerState,
+    VueTableState
   },
   strict: debug
 })

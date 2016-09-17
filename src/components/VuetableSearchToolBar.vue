@@ -3,8 +3,8 @@
         <div class="col-md-7 form-inline">
             <div class="form-inline form-group">
                 <label>Search:</label>
-                <input v-model="searchFor" class="form-control" @keyup.enter="setFilter">
-                <button class="btn btn-primary" @click="setFilter">Go</button>
+                <input v-model="searchForRyan" class="form-control" @keyup.enter="setFilter">
+                <button class="btn btn-primary" @click="vuetableRefresh(searchForRyan)">Go</button>
                 <button class="btn btn-default" @click="resetFilter">Reset</button>
             </div>
         </div>
@@ -21,10 +21,12 @@
 
 </style>
 <script>
+    import { vuetableRefresh } from '../../vuex/actions'
+
     export default{
         data(){
             return{
-                searchFor: ''
+                searchForRyan: ''
             }
         },
         methods: {
@@ -34,10 +36,13 @@
             setFilter: function() {
                 debugger;
                 this.moreParams = [
-                    'filter=' + this.searchFor
+                    'filter=' + this.searchForRyan
                 ]
                 this.$nextTick(function() {
-                    this.$broadcast('vuetable:refresh')
+                    //this.$broadcast('vuetable:refresh')
+                    var param = 'filter=' + this.searchFor;
+                    this.searchFun(param);
+                    //vuetableRefresh(param);
                 })
             },
             resetFilter: function() {
@@ -95,6 +100,17 @@
             },
             rowClassCB: function(data, index) {
                 return (index % 2) === 0 ? 'positive' : ''
+            }
+        },
+        vuex: {
+            getters: {
+
+            },
+            actions: {
+//                searchFun: ({ dispatch }, appendParams) => {
+//                    dispatch('ADD_NOTE', appendParams);
+//                },
+                vuetableRefresh
             }
         }
     }

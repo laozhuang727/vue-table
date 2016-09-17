@@ -17,3 +17,11 @@ export const updateActiveNote = ({ dispatch }, note) => {
 export const toggleFavorite = ({ dispatch }) => {
   dispatch('TOGGLE_FAVORITE')
 }
+
+export const tableSetFilter = ({ dispatch }, appendParams) => {
+  dispatch('TABLE_SET_FILTER', appendParams)
+}
+
+export const vuetableRefresh = ({ dispatch }, appendParams) => {
+  dispatch('VUE_TABLE_REFRESH', appendParams)
+}
