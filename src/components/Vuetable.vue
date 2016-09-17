@@ -85,7 +85,9 @@
 </template>
 
 <script>
-export default {
+    import { vuetableRefresh } from '../../vuex/actions'
+
+    export default {
     props: {
         wrapperClass: {
             type: String,
@@ -378,6 +380,7 @@ export default {
             })
         },
         loadData: function() {
+            debugger
             var self = this
 
             var wrapper = document.querySelector(this.tableWrapper)
@@ -765,6 +768,12 @@ export default {
                 this.sortOrder.splice(1);
                 this.loadData();
             }
+        },
+        'appendParams': function(newVal, oldVal){
+            debugger
+            this.appendParams = this.vueTableState.appendParams
+            this.searchFor = this.vueTableState.searchFor
+            this.loadData();
         }
     },
     events: {
@@ -812,7 +821,16 @@ export default {
         this.$nextTick(function() {
             this.callPaginationConfig()
         })
+    },
+    vuex: {
+        getters: {
+            appendParams: ({ VueTableState }) => VueTableState.appendParams,
+            vueTableState: ({ VueTableState }) => VueTableState
+    },
+    actions: {
+        vuetableRefresh
     }
+}
 }
 </script>
 

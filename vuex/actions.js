@@ -22,6 +22,6 @@ export const tableSetFilter = ({ dispatch }, appendParams) => {
   dispatch('TABLE_SET_FILTER', appendParams)
 }
 
-export const vuetableRefresh = ({ dispatch }, appendParams) => {
-  dispatch('VUE_TABLE_REFRESH', appendParams)
+export const vuetableRefresh = ({ dispatch }, appendParams, searchFor) => {
+  dispatch('VUETABLE_REFRESH', appendParams, searchFor)
 }

@@ -3,8 +3,8 @@
         <div class="col-md-7 form-inline">
             <div class="form-inline form-group">
                 <label>Search:</label>
-                <input v-model="searchForRyan" class="form-control" @keyup.enter="setFilter">
-                <button class="btn btn-primary" @click="vuetableRefresh(searchForRyan)">Go</button>
+                <input v-model="searchForResult" class="form-control" @keyup.enter="setFilter">
+                <button class="btn btn-primary" @click="resetFilter">Go</button>
                 <button class="btn btn-default" @click="resetFilter">Reset</button>
             </div>
         </div>
@@ -26,7 +26,7 @@
     export default{
         data(){
             return{
-                searchForRyan: ''
+                searchForResult: ''
             }
         },
         methods: {
@@ -34,15 +34,15 @@
              * Other functions
              */
             setFilter: function() {
-                debugger;
                 this.moreParams = [
-                    'filter=' + this.searchForRyan
+                    'filter=' + this.searchForResult
                 ]
                 this.$nextTick(function() {
                     //this.$broadcast('vuetable:refresh')
-                    var param = 'filter=' + this.searchFor;
-                    this.searchFun(param);
-                    //vuetableRefresh(param);
+//                    var param = 'filter=' + this.searchFor;
+//                    this.searchFun(param);
+                    debugger
+                    this.vuetableRefresh(this.moreParams, this.searchForResult);
                 })
             },
             resetFilter: function() {
@@ -65,6 +65,7 @@
                 return (str+'').replace(/([\\\.\+\*\?\[\^\]\$\(\)\{\}\=\!\<\>\|\:])/g, "\\$1");
             },
             highlight: function(needle, haystack) {
+                debugger
                 return haystack.replace(
                   new RegExp('(' + this.preg_quote(needle) + ')', 'ig'),
                   '<span class="highlight">$1</span>'
@@ -107,9 +108,9 @@
 
             },
             actions: {
-//                searchFun: ({ dispatch }, appendParams) => {
-//                    dispatch('ADD_NOTE', appendParams);
-//                },
+//                vuetableRefresh: ({ dispatch }, appendParams) => {
+//                    dispatch('VUETABLE_REFRESH', appendParams);
+//                }
                 vuetableRefresh
             }
         }

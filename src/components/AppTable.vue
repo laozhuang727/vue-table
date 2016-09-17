@@ -290,6 +290,7 @@
 				console.log(data)
 				if (this.searchFor !== '') {
 					for (var n in data) {
+						debugger
 						data[n].name = this.highlight(this.searchFor, data[n].name)
 						data[n].email = this.highlight(this.searchFor, data[n].email)
 					}
