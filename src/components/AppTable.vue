@@ -303,6 +303,13 @@
 					sweetAlert('Oops', E_SERVER_ERROR, 'error')
 				}
 			}
+		},
+		vuex: {
+			getters: {
+				searchFor: function ({VueTableState}) {
+					return VueTableState.searchFor
+				}
+			}
 		}
 	}
 </script>
