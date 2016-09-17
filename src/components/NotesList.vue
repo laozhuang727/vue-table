@@ -50,8 +50,8 @@ export default {
   },
   vuex: {
     getters: {
-      notes: ({ note }) => note.notes,
-      activeNote: ({ note }) => note.activeNote
+      notes: ({ NoteManagerState }) => NoteManagerState.notes,
+      activeNote: ({ NoteManagerState }) => NoteManagerState.activeNote
     },
     actions: {
       updateActiveNote
@@ -62,7 +62,7 @@ export default {
       if (this.show === 'all'){
         return this.notes
       } else if (this.show === 'favorites') {
-        return this.notes.filter(note => note.favorite)
+        return this.notes.filter(NoteManagerState => NoteManagerState.favorite)
       }
     }
   }

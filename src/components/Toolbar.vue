@@ -14,7 +14,7 @@ import { addNote, deleteNote, toggleFavorite } from '../../vuex/actions'
 export default {
   vuex: {
     getters: {
-      activeNote: ({ note }) => note.activeNote
+      activeNote: ({ NoteManagerState }) => NoteManagerState.activeNote
     },
     actions: {
       addNote,

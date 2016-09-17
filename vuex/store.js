@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import VueResource from 'vue-resource'
 
 
-import note from './modules/note'
+import NoteManagerState from './modules/note-manager-state'
 
 Vue.use(Vuex)
 Vue.use(VueResource)
@@ -13,7 +13,7 @@ const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
   modules: {
-    note,
+    NoteManagerState,
   },
   strict: debug
 })
